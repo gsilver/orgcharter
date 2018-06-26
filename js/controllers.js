@@ -1,11 +1,9 @@
 orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log', '$timeout', function($scope, $location, $rootScope, $log, $timeout) {
   $scope.$watch('trimfile', function(newFileObj) {
-    console.log('trimfile');
     $scope.headers = [];
     $scope.content = false;
     //there is a new file
     if (newFileObj) {
-      console.log('new file');
       $scope.loading = true;
       //read the file
       var reader = new FileReader();
@@ -16,17 +14,14 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
         Papa.parse(reader.result, {
           complete: function(results) {
             $timeout(function() {
-              //$scope.headers = results[]
               $scope.headers = results.data[0];
               $scope.csvList = _.rest(results.data, 1);
-              //console.log($scope.csvList);
-              //console.log(_.last($scope.toTrim)[0]);
               $scope.turnToJson();
             });
           }
         });
       };
-
+      $scope.filename = newFileObj.name;
     }
   });
 
@@ -55,7 +50,7 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
         });
         $scope.jsonList[thisPersonsBossIndex].underlings.push(item);
          if(i === $scope.jsonListSorted.length - 2 ){
-          console.log([$scope.jsonList[0]]);
+          //do something clever
          }
       }
     });
