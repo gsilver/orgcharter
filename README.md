@@ -1,7 +1,10 @@
 # Orgcharter
 
-Add a CSV export to Orgcharter. Collect the html prices.
+Add a CSV export to Orgcharter. Collect the html prizes.
 
+TODO: output list of lists (of lists, &c)
+
+## Setup
 Clone repo
 
 cd to repo

@@ -41,14 +41,15 @@
         </div>
       </div>
 
-  <table class="table" style="display:none">
+  <table class="table" ng-show="jsonList.length">
     <thead>
       <tr>
         <th ng-repeat="head in headers">{{head}}</th>
+        <th>Reports</th>
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="item in jsonListSorted">
+      <tr ng-repeat="item in jsonList">
         <td>{{item.id}}</td>
         <td>{{item.reportsTo}}</td>
         <td>{{item.isAssistant}}</td>
@@ -58,6 +59,8 @@
       </tr>
     </tbody>
   </table>
+
+  <h2 ng-show="jsonList.length"> The whole structure as an object</h2>
     {{jsonList[0]}}
 
     </div>
