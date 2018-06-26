@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.1.0/octicons.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body ng-app="orgApp">
+    <div class="container" ng-controller="csvController">
+      <h1>Orgcharter</h1>
+      <div class="panel panel-default">
+        <div class="panel-body" style="padding:5px 15px 20px 15px">
+
+          <h2  style="font-size:110%">Step 1</h1>
+          <p>Provide the CSV version of the file you downloaded from the orgchart thingy.</p>
+          <div class="input-group">
+            <label class="input-group-btn">
+              <span class="btn"  ng-class="filename? 'btn-success': 'btn-primary'">
+                Browse…
+                <i class="glyphicon glyphicon-upload" ng-show="!filename"></i> <i class="glyphicon glyphicon-ok" ng-show="filename"></i>
+                <input class="sr-only" id="trim-file" type="file" name="files" style="display:inline" file-model="trimfile">
+              </span>
+            </label>
+            <input type="text" class="form-control" readonly="" value="{{filename}}">
+          </div>
+          <!-- <div>
+            <label class="btn btn-file" ng-class="filename? 'btn-success': 'btn-primary'">
+              Browse <i class="glyphicon glyphicon-upload" ng-show="!filename"></i> <i class="glyphicon glyphicon-ok" ng-show="filename"></i>
+               <input class="btn btn-default" id="trim-file" type="file" name="files" style="display:inline" file-model="trimfile">
+            </label> <small ng-show="filename">({{filename}})</small>
+          </div> -->
+        </div>
+      </div>
+
+  <table class="table" style="display:none">
+    <thead>
+      <tr>
+        <th ng-repeat="head in headers">{{head}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in jsonListSorted">
+        <td>{{item.id}}</td>
+        <td>{{item.reportsTo}}</td>
+        <td>{{item.isAssistant}}</td>
+        <td>{{item.name}}</td>
+        <td>{{item.title}}</td>
+        <td>{{item.underlings}}</td>
+      </tr>
+    </tbody>
+  </table>
+    {{jsonList[0]}}
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.5.0/papaparse.min.js"></script>
+
+  </body>
+</html>
