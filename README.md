@@ -1,14 +1,14 @@
 # Orgcharter
 
-Add a CSV export to Orgcharter. Collect the html prizes.
+Add a CSV export file to Orgcharter. Collect the html prizes.
 
-TODO: output list of lists (of lists, &c)
+TODO: output list of lists (of lists, &c) in a format that will render as an orgchart
 
 ## Setup
-Clone repo
+`git clone https://github.com/gsilver/orgcharter`
 
-cd to repo
+`cd orgcharter`
 
 `python -m SimpleHTTPServer 8000`
 
-go to `localhost:8000`
+go to `http://localhost:8000`
