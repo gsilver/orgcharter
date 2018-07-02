@@ -55,4 +55,7 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
       }
     });
   };
+  $scope.turnToHTML = function() {
+//    console.log($scope.dataObject);
+  }
 }]);

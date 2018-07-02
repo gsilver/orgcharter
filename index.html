@@ -41,7 +41,47 @@
         </div>
       </div>
 
-  <table class="table" ng-show="jsonList.length">
+  <button type="button" name="button" class="btn btn-primary" ng-click="turnToHTML()">Do a list</button>
+
+  <ol>
+    <li>
+      {{dataObject.name}} {{dataObject.title}}
+      <ol ng-if="dataObject.underlings.length">
+        <li ng-repeat="underling in dataObject.underlings">{{underling.name}} - {{underling.title}}
+          <ol ng-if="underling.underlings.length">
+            <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+              <ol ng-if="underling.underlings.length">
+                <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+                  <ol ng-if="underling.underlings.length">
+                    <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+                      <ol ng-if="underling.underlings.length">
+                        <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+                          <ol ng-if="underling.underlings.length">
+                            <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+                              <ol ng-if="underling.underlings.length">
+                                <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
+                                  <ol ng-if="underling.underlings.length">
+                                    <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}</li>
+                                  </ol>
+                                </li>
+                              </ol>
+                            </li>
+                          </ol>
+                        </li>
+                      </ol>
+                    </li>
+                  </ol>
+                </li>
+              </ol>
+            </li>
+          </ol>
+          </li>
+      </ol>
+    </li>
+  </ol>
+
+
+  <!-- <table class="table" ng-show="jsonList.length">
     <thead>
       <tr>
         <th ng-repeat="head in headers">{{head}}</th>
@@ -61,7 +101,7 @@
   </table>
 
   <h2 ng-show="jsonList.length"> The whole structure as an object</h2>
-    {{jsonList[0]}}
+    {{jsonList[0]}} -->
 
     </div>
 
