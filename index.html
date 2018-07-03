@@ -8,7 +8,8 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.1.0/octicons.min.css">
-        <link rel="stylesheet" href="vendor/jquery-orgchart/jquery.orgchart.css">
+    <link rel="stylesheet" href="vendor/jquery-orgchart/jquery.orgchart.css">
+    <link rel="stylesheet" href="css/org_styles.css">
 
     <!--[if lt IE 9]>
       <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -38,7 +39,7 @@
   <div id="chart">
   </div>
 
-  <ul id="source-chart">
+  <ul id="source-chart" ng-show="dataObject">
     <li>
       {{dataObject.name}} {{dataObject.title}}
       <ul ng-if="dataObject.underlings.length">

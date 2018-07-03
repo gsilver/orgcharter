@@ -14,3 +14,31 @@ orgApp.directive('fileModel', ['$parse', function($parse) {
     }
   };
 }]);
+
+orgApp.directive('orgchart', function() {
+    return {
+        restrict: 'AE',
+        scope: {
+            source     : '=',
+            container  : '=',
+            stack      : '=',
+            depth      : '=',
+            interactive: '=',
+            showLevels : '=',
+            clicked    : '=' // We use '=' here rather than '&' for this callback function
+        },
+        link: function(scope, element, attrs) {
+            var target = $(element);
+            var source = $('#' + scope.source);
+            var options = {
+                container  : target,
+                nodeClicked: scope.clicked,
+                stack      : scope.stack,
+                depth      : scope.depth,
+                interactive: scope.interactive,
+                showLevels : scope.showLevels
+            };
+            source.orgChart(options);
+        }
+    };
+});

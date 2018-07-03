@@ -45,20 +45,20 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
     $scope.jsonListSorted = _.sortBy($scope.jsonList, 'SupervisorID').reverse();
     _.each($scope.jsonListSorted, function(item, i) {
       if (item.reportsTo !== '0') {
-        var thisPersonsBossIndex = $scope.jsonList.findIndex(function(o){
-           return o.id === item.reportsTo;
+        var thisPersonsBossIndex = $scope.jsonList.findIndex(function(o) {
+          return o.id === item.reportsTo;
         });
         $scope.jsonList[thisPersonsBossIndex].underlings.push(item);
-         if(i === $scope.jsonListSorted.length - 2 ){
+        if (i === $scope.jsonListSorted.length - 2) {
           $scope.dataObject = $scope.jsonList[0];
-          $timeout( function(){
-            angular.element(document).ready(function () {
-              $(angular.element('#source-chart')).orgChart({container: $(angular.element('#chart'))});
-           });
-         }, 1000 );
-         }
+          $timeout(function() {
+            angular.element(document).ready(function() {
+              $(angular.element('#source-chart')).orgChart({
+                container: $(angular.element('#chart')),interactive: true, showLevels:2});
+            });
+          }, 1000);
+        }
       }
     });
   };
-};
 }]);
