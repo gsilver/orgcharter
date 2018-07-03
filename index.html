@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/octicons/3.1.0/octicons.min.css">
+        <link rel="stylesheet" href="vendor/jquery-orgchart/jquery.orgchart.css">
 
     <!--[if lt IE 9]>
       <script src="https://cdn.jsdelivr.net/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -32,77 +33,47 @@
             </label>
             <input type="text" class="form-control" readonly="" value="{{filename}}">
           </div>
-          <!-- <div>
-            <label class="btn btn-file" ng-class="filename? 'btn-success': 'btn-primary'">
-              Browse <i class="glyphicon glyphicon-upload" ng-show="!filename"></i> <i class="glyphicon glyphicon-ok" ng-show="filename"></i>
-               <input class="btn btn-default" id="trim-file" type="file" name="files" style="display:inline" file-model="trimfile">
-            </label> <small ng-show="filename">({{filename}})</small>
-          </div> -->
         </div>
       </div>
+  <div id="chart">
+  </div>
 
-  <button type="button" name="button" class="btn btn-primary" ng-click="turnToHTML()">Do a list</button>
-
-  <ol>
+  <ul id="source-chart">
     <li>
       {{dataObject.name}} {{dataObject.title}}
-      <ol ng-if="dataObject.underlings.length">
+      <ul ng-if="dataObject.underlings.length">
         <li ng-repeat="underling in dataObject.underlings">{{underling.name}} - {{underling.title}}
-          <ol ng-if="underling.underlings.length">
+          <ul ng-if="underling.underlings.length">
             <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-              <ol ng-if="underling.underlings.length">
+              <ul ng-if="underling.underlings.length">
                 <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                  <ol ng-if="underling.underlings.length">
+                  <ul ng-if="underling.underlings.length">
                     <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                      <ol ng-if="underling.underlings.length">
+                      <ul ng-if="underling.underlings.length">
                         <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                          <ol ng-if="underling.underlings.length">
+                          <ul ng-if="underling.underlings.length">
                             <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                              <ol ng-if="underling.underlings.length">
+                              <ul ng-if="underling.underlings.length">
                                 <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                                  <ol ng-if="underling.underlings.length">
+                                  <ul ng-if="underling.underlings.length">
                                     <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}</li>
-                                  </ol>
+                                  </ul>
                                 </li>
-                              </ol>
+                              </ul>
                             </li>
-                          </ol>
+                          </ul>
                         </li>
-                      </ol>
+                      </ul>
                     </li>
-                  </ol>
+                  </ul>
                 </li>
-              </ol>
+              </ul>
             </li>
-          </ol>
+          </ul>
           </li>
-      </ol>
+      </ul>
     </li>
-  </ol>
-
-
-  <!-- <table class="table" ng-show="jsonList.length">
-    <thead>
-      <tr>
-        <th ng-repeat="head in headers">{{head}}</th>
-        <th>Reports</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="item in jsonList">
-        <td>{{item.id}}</td>
-        <td>{{item.reportsTo}}</td>
-        <td>{{item.isAssistant}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.title}}</td>
-        <td>{{item.underlings}}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <h2 ng-show="jsonList.length"> The whole structure as an object</h2>
-    {{jsonList[0]}} -->
-
+  </ul>
     </div>
 
 
@@ -114,6 +85,6 @@
     <script src="js/services.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.5.0/papaparse.min.js"></script>
-
+    <script src="vendor/jquery-orgchart/jquery.orgchart.min.js"></script>
   </body>
 </html>

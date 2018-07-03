@@ -50,12 +50,15 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
         });
         $scope.jsonList[thisPersonsBossIndex].underlings.push(item);
          if(i === $scope.jsonListSorted.length - 2 ){
-          //do something clever
+          $scope.dataObject = $scope.jsonList[0];
+          $timeout( function(){
+            angular.element(document).ready(function () {
+              $(angular.element('#source-chart')).orgChart({container: $(angular.element('#chart'))});
+           });
+         }, 1000 );
          }
       }
     });
   };
-  $scope.turnToHTML = function() {
-//    console.log($scope.dataObject);
-  }
+};
 }]);
