@@ -38,8 +38,12 @@
       </div>
   <div id="chart">
   </div>
-
-  <ul id="source-chart" ng-show="dataObject">
+  <div ng-show="dataObject">
+    <a href="" ng-show="!revealList" ng-click="revealList = true">Reveal screen reader list</a>
+    <a href="" ng-show="revealList" ng-click="revealList = false">Conceal screen reader list</a>
+    <br><br>
+  </div>
+  <ul id="source-chart" ng-show="dataObject" ng-class="revealList?'':'sr-only'">
     <li>
       {{dataObject.name}} {{dataObject.title}}
       <ul ng-if="dataObject.underlings.length">
