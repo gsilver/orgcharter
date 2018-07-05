@@ -34,7 +34,7 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
         isAssistant: thisItem[2],
         name: thisItem[3],
         title: thisItem[4],
-        underlings: []
+        reports: []
       });
       if ($scope.jsonList.length === $scope.csvList.length) {
         $scope.rearrangeJson();
@@ -48,7 +48,7 @@ orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log',
         var thisPersonsBossIndex = $scope.jsonList.findIndex(function(o) {
           return o.id === item.reportsTo;
         });
-        $scope.jsonList[thisPersonsBossIndex].underlings.push(item);
+        $scope.jsonList[thisPersonsBossIndex].reports.push(item);
         if (i === $scope.jsonListSorted.length - 2) {
           $scope.dataObject = $scope.jsonList[0];
           $timeout(function() {

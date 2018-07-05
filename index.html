@@ -46,22 +46,22 @@
   <ul id="source-chart" ng-show="dataObject" ng-class="revealList?'':'sr-only'">
     <li>
       {{dataObject.name}} {{dataObject.title}}
-      <ul ng-if="dataObject.underlings.length">
-        <li ng-repeat="underling in dataObject.underlings">{{underling.name}} - {{underling.title}}
-          <ul ng-if="underling.underlings.length">
-            <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-              <ul ng-if="underling.underlings.length">
-                <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                  <ul ng-if="underling.underlings.length">
-                    <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                      <ul ng-if="underling.underlings.length">
-                        <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                          <ul ng-if="underling.underlings.length">
-                            <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                              <ul ng-if="underling.underlings.length">
-                                <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}
-                                  <ul ng-if="underling.underlings.length">
-                                    <li ng-repeat="underling in underling.underlings">{{underling.name}} - {{underling.title}}</li>
+      <ul ng-if="dataObject.reports.length">
+        <li ng-repeat="report in dataObject.reports">{{report.name}} - {{report.title}}
+          <ul ng-if="report.reports.length">
+            <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+              <ul ng-if="report.reports.length">
+                <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                  <ul ng-if="report.reports.length">
+                    <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                      <ul ng-if="report.reports.length">
+                        <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                          <ul ng-if="report.reports.length">
+                            <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                              <ul ng-if="report.reports.length">
+                                <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                                  <ul ng-if="report.reports.length">
+                                    <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}</li>
                                   </ul>
                                 </li>
                               </ul>
