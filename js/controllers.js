@@ -1,7 +1,5 @@
 orgApp.controller('csvController', ['$scope', '$location', '$rootScope', '$log', '$timeout', function($scope, $location, $rootScope, $log, $timeout) {
   $scope.$watch('trimfile', function(newFileObj) {
-    $scope.headers = [];
-    $scope.content = false;
     //there is a new file
     if (newFileObj) {
       $scope.loading = true;
