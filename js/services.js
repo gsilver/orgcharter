@@ -1,4 +1,3 @@
-//directive to read a file in a file[type:input]
 orgApp.directive('fileModel', ['$parse', function($parse) {
   return {
     restrict: 'A',

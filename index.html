@@ -50,7 +50,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="item in csvList">
+        <tr ng-repeat="item in csvList  track by $index">
           <td>
             {{item[0]}}
           </td>
@@ -81,21 +81,21 @@
       <li>
         {{dataObject.name}} {{dataObject.title}}
         <ul ng-if="dataObject.reports.length">
-          <li ng-repeat="report in dataObject.reports">{{report.name}} - {{report.title}}
+          <li ng-repeat="report in dataObject.reports  track by $index">{{report.name}} - {{report.title}}
             <ul ng-if="report.reports.length">
-              <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+              <li ng-repeat="report in report.reports  track by $index">{{report.name}} - {{report.title}}
                 <ul ng-if="report.reports.length">
-                  <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                  <li ng-repeat="report in report.reports track by $index">{{report.name}} - {{report.title}}
                     <ul ng-if="report.reports.length">
-                      <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                      <li ng-repeat="report in report.reports track by $index">{{report.name}} - {{report.title}}
                         <ul ng-if="report.reports.length">
                           <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
                             <ul ng-if="report.reports.length">
-                              <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                              <li ng-repeat="report in report.reports track by $index"">{{report.name}} - {{report.title}}
                                 <ul ng-if="report.reports.length">
-                                  <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}
+                                  <li ng-repeat="report in report.reports track by $index"">{{report.name}} - {{report.title}}
                                     <ul ng-if="report.reports.length">
-                                      <li ng-repeat="report in report.reports">{{report.name}} - {{report.title}}</li>
+                                      <li ng-repeat="report in report.reports track by $index"">{{report.name}} - {{report.title}}</li>
                                     </ul>
                                   </li>
                                 </ul>
@@ -124,8 +124,8 @@
 
   <script src="https://cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
   <script src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-animate.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers.js"></script>
   <script src="js/services.js"></script>
